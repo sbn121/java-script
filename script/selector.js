@@ -52,4 +52,16 @@ $(function(){
         }); // : css조작 메소드
     });    
     // $(".class");
+
+
+    // 팝업 - 닫기 버튼 구현
+    $("#closePop").click(colsePopup);
+
 })
+
+//함수 선언식
+function colsePopup(){
+    console.log("팝업닫기")
+}
+
+
