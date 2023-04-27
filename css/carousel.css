@@ -1,0 +1,90 @@
+.material-icons {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+
+        /* Support for all WebKit browsers. */
+        -webkit-font-smoothing: antialiased;
+        /* Support for Safari and Chrome. */
+        text-rendering: optimizeLegibility;
+
+        /* Support for Firefox. */
+        -moz-osx-font-smoothing: grayscale;
+
+        /* Support for IE. */
+        font-feature-settings: "liga";
+      }
+      .d-none {
+        display: none;
+      }
+      header {
+        border-bottom: 1px solid #ccc;
+      }
+      footer {
+        background: black;
+        color: white;
+      }
+      .header-wrap,
+      .footer-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      #carousel {
+        height: 400px;
+        /* overflow: hidden; */
+        position: relative;
+      }
+      .img {
+        height: 400px;
+        position: absolute;
+        width: 100vw;
+      }
+      .bg-pink {
+        background: rgba(255, 192, 203, 0.62);
+      }
+      .bg-coral {
+        background: rgba(255, 127, 80, 0.485);
+      }
+      .bg-purple {
+        background: rgba(128, 0, 128, 0.34);
+      }
+      .controls {
+        position: absolute;
+        right: 20%;
+        bottom: 5%;
+        display: flex;
+        gap: 0.8rem;
+        z-index: 9999;
+      }
+      .round {
+        border: 0;
+        background: rgba(0, 0, 0, .3);
+        border-radius: 50%;
+        color: white;
+        width: 50px;
+        height: 50px;
+      }
+      .info {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, .3);
+        border-radius: 50px;
+        width: 100px;
+        color: white;
+        font-size: 1.250rem;
+      }
+      .top {
+        z-index: 1;
+      }
