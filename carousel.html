@@ -86,6 +86,8 @@
         var isPlaying = false;
         var pageNum = 1;
         $(function(){   
+          updatePageNum(); // 페이지가 로드되면, 페이지 번호를 업데이트
+
             $(".pages").text(pageNum+" / "+totalImg)
 
             // navigate-next 버튼에 접근
@@ -109,7 +111,7 @@
             // var current = $(".imgs > div:nth-child(1)"); // .imgs 자손 div중 첫번째
             var current = $(".imgs > div.top");  // .imgs 자손 div중 클래스가 top인 것
             var next = current.next();  // .top 클래스를 가진 div 다음 오는 div
-            if(pageNum > 3) {
+            if(pageNum >= 3) {
               pageNum = 1;
             }else {
               pageNum++;
@@ -122,10 +124,14 @@
                 $(".imgs > div:nth-child(1)").addClass("top");
                 $(".imgs > div:nth-last-child(1)").removeClass("top");
             }
+            updatePageNum();
         }
         function prevScene(){   // 함수(function)의 선언식
             console.log('before버튼 누름!')
-            $(".pages").text("1 / "+totalImg)
+            updatePageNum;
+        }
+        function updatePageNum(){
+          $(".pages").text(pageNum+" / "+totalImg);
         }
     </script>
   </body>
