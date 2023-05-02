@@ -7,22 +7,22 @@ var playTime; // 자동재생 시간간격
 
 $(function(){
     init();
-    btn();
+    btn();    
 });
-function init(){
+function init(){ // 페이지 로드되면, init()로 기본 설정값 업데이트하거나 자동재생 시작
     updatePageNum(1);
     playTime = 4000; //ms
     startAutoPlay();
 }
 function changeURL(){
-    location.href="../event-list.html"
+    location.href="../event-list.html";
 }
 function btn(){
     $("#plusBtn").on("click", changeURL); // 모둠페이지로 이동
 
-    //$("#prevBtn").on("click", prevScene); // 이전 씬
-    $("#nextBtn").on("click", nextScene); // 다음 씬
-
+    //$("#prevBtn").on("click", nextScene); // 이전
+    $("#nextBtn").on("click", nextScene); // 다음
+    
     $("#pause").on("click", function(){
         if(isPlaying) {
             console.log("재생중, 클릭시 일시정지로 변경!");
@@ -39,11 +39,10 @@ function btn(){
         }
     })
 }
-
-function stopAutoPlay(){    //  자동재생 중지
+function stopAutoPlay(){ // 자동재생 중지
     clearInterval(intervalID);
 }
-function startAutoPlay(){   // 자동재생 시작
+function startAutoPlay(){ // 자동재생 시작
     intervalID = setInterval(nextScene, playTime);
 }
 function nextScene() { // 함수(function)의 선언식
@@ -72,6 +71,7 @@ function nextScene() { // 함수(function)의 선언식
 // function prevScene() { // 함수(function)의 선언식
 //     updatePageNum();
 // }
+
 
 function updatePageNum(newNum){
     $(".pages").text(newNum+" / "+totalImg);

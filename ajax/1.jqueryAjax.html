@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery Ajax</title>
+    <style>
+        table, th, td {
+            border: 1px solid #333;
+            border-collapse: collapse;
+        }
+        tbody {
+            width: 100%;
+        }
+        th {
+            width: 20%;
+            padding: 1rem 0
+        }
+        td {
+            padding: .725rem 0;
+            text-align: center;
+        }
+        #json_table {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Ajax</h1>
+    <p>Ajax (에이잭스, 아작스) : 화면 깜박임 없이 화면의 일부를 업데이트(=갱신) 하는 기술</p>
+    <h2>데이터 요청 방식(HTTP 프로토콜)</h2>
+    <ul>
+        <li>post  : Create</li>
+        <li>get : Read</li>
+        <li>put : Update</li>
+        <li>delete: Delete</li>
+    </ul>
+    <p>CRUD라고 해서, 데이터를 생성하고 요청(=읽고), 갱신(=업데이트), 삭제하는 작업을 하게 됩니다.</p>
+    <p>다만, HTML5에서는 GET, POST만 Form을 통해서 요청할 수 있고 PUT, DELTE는 AJAX로 요청해야 함. 기술적으로,
+        그렇게 만들어져 있음(=원 저작자가 어떠한 의도로 그렇게 설계했다고 알려져 있음)
+    </p>
+    <h2>form을 통해 GET, POST 요청하기(예시)</h2>
+    <form action="create_user.jsp" method="post">
+        <p>id, pw 입력하고 name, email 입력받아서 서버로 전송하면 계정이 생성되는 것</p>
+    </form>
+    <a href="/join.jsp">회원가입</a><!-- 기본 요청은 GET -->
+    <h3>jQuery AJAX 요청 실습</h3>
+    <button id="textBtn">text 불러오기</button>
+    <table id="json_table">
+        <thead>
+            <tr>
+                <th>아이디</th>
+                <th>이름</th>
+                <th>성</th>
+                <th>성별</th>
+                <th>이메일</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 여기에 AJAX로 요청한 데이터 + UI 요소를 출력할 예정 -->
+        </tbody>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        
+        $(function(){
+            $("#textBtn").on("click", function(){
+                // p.492 참조
+                $.get("data/MOCK_DATA.json", function(data, status){ // json 데이터가 수신되면,                
+                    // 데이터 수신이 이뤄지면, success 상태, console.log(data); 로 확인가능!                
+                var row;
+                var table = $("#json_table tbody"); // tbody로 나중에 바꿈
+            
+                for(d of data) {
+                    //console.log(d["id"], d["first_name"]); // 1000건의 데이터 하나하나를 d라는 변수로 할당, 그 d에 있는 key인 id에 접근
+                    var id = d.id; // 또는 d["id"];
+                    var fname = d.first_name;
+                    var lname = d.last_name;
+                    var gender = d.email;
+                    var email = d.email;
+                    row = "<tr>";
+                    row += "<td>"+id+"</td>";
+                    row += "<td>"+fname+"</td>";
+                    row += "<td>"+lname+"</td>";
+                    row += "<td>"+gender+"</td>";
+                    row += "<td>"+email+"</td>";
+                    row += "</tr>";
+                    // console.log(row);
+                    // 가공(표를 만들거나, 데이터를 그 표에 꾸겨 넣거나?)
+                    // 그리고 마지막에 DOM에 추가(렌더링)
+                    table.append(row);
+                }
+            });
+        })
+    });
+    </script>
+</body>
+</html>

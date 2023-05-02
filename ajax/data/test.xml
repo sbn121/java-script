@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE food [
+<!ELEMENT food (name,type,cost)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT cost (#PCDATA)>
+]>
+
+<food>
+    <name>상추</name>
+    <type>야채</type>
+    <cost>2000</cost>
+</food>

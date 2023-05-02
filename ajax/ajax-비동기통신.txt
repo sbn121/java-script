@@ -1,0 +1,110 @@
+
+:: 제이쿼리 Ajax (p.491)
+
+Ajax (에이잭스, 아작스) : 화면 깜박임 없이 화면의 일부를 업데이트(=갱신) 하는 기술
+
+브라우저 ------> 데이터 요청       http://www.naver.com              <-------- 웹서버 : 응답 (데이터 , UI)
+                                                          http://blog.naver.com
+[클라이언트]   < ------------------------------------------------ >   [서버]
+                                                                                                                요청에 따라 응답하는 시스템
+
+
+웹서버에서 데이터를 UI와 제공 --> 클라이언트의 브라우저가 화면에 표시(=렌더링),   페이지가 많고, 클릭이나 이동이 있으면
+                                                             반드시 화면이 깜박임 (HTTP 프로토콜, 브라우저에서 렌더링할때의 문제)
+                                                              Multiple Page Application(MPA) : 페이지가 많은 웹/앱 애플리케이션
+
+
+[프론트 엔드 개발](요즘)
+[요즘] 화면 깜박임 없이 UI를 렌더링 하는 기술이 트렌드, 대세!       Single Page Application(=SPA) :  Vue, React, Angular
+
+
+
+                                         
+Asynchrounous Javascript And XML  : 
+비동기                     자바스크립트 와   XML  <--- 
+                                                                                  
+※ 과거 데이터 교환 : XML   ,  지금 데이터 교환 : JSON  (제이슨, 제이손)
+
+1. XML : eXtensible Markup Language   [데이터 교환용 포맷]
+2. JSON :  JavaScript Object Notation : 자바스크립트 객체 표기법
+3. CSV : Comma Separate Value : 콤마로 구분된 값
+
+4. text, html 가능...
+                                                                                   <img src="" alt="" /> : 반드시 종료태그가 있어야 함.
+
+                                                                                HTML : HyperText Markup Language   [웹문서]
+                                                                                   <img src="" alt="">   : 종료태그가 없는 태그가 있다 (생략가능)
+
+※ 자바스크립트 반복문 / 반복관련 메소드
+while 문 : 가장 간단한 반복문
+for문 : 일반적인 반복문
+for ~ of 문 : 배열 (변수 선언 x, 조건식, 증감식 x)
+for ~ in 문 : 객체
+do~while 문 : 조건이 false여도 한번은 실행되는 반복문
+
+.map()  vs $.map()
+.reduce()
+.filter()
+
+
+
+
+
+동기---> 요청 : 응답 올때까지 기다렸다가 응답이 오면 화면을 갱신 하는 것
+비동기 --> 요청 보내놓고 응답이 오면 화면을 갱신하는 것
+
+
+1) Javascript XMLHttpRequest 객체를 이용하는 방법
+     - 어, 그런게 있구나~ 있었어 라고 생각!
+
+2) jQuery의 $.ajax()를 이용하는 방법
+     - $.ajax() : 모든 HTTP 요청을 처리 (GET, POST, PUT, DELETE 를 요청) ★★★
+
+     ex> http://myservice.com/get_member_list               [라우팅 routing]
+
+     - .load() : HTML에 요청한 데이터를 그대로 집어 넣는 메소드 (JSON, XML,CSV는 데이터를 가공하고 UI를 붙여서 처리)
+     - $.get() : GET 요청만 처리 (ex. 맛집 검색~ 주소창에 다보여!)
+     - $.post() : POST 요청만 처리 (ex. 회원 가입 ~ 회원의 입력정보를 요청 바디에 숨겨서 처리!)    |  서버에 자원을 생성요청--> API 정의 되어야 함
+         ... 그밖에...
+
+3) 최신 API (Javascript)
+     ※ Internet Explorer와 호환되지 않음 (10 이하)
+
+    - fetch()
+    - async/await
+---------------------------------------------------------
+    - axios    :  Vue, React, Angular...[프런트엔드 개발]
+
+※ CDN 으로 axios API (axios.get(), axios.post()...)를 사용할 수 있음.
+
+
+
+I. 가짜 회원정보 파일 데이터를 활용한 UI 렌더링 [로컬 데이터]
+https://www.mockaroo.com/
+(1) ip_address 필드 삭제 
+(2) 1000건의 json data 저장(MOCK_DATA.json)
+
+II. 비트코인 API를 활용한  UI 렌더링 [서버 응답 데이터]
+
+※ coin paprika API는 1시간 내에 60건 이상의 요청이 있게되면 서버에서 차단 (CORS 에러 발생)
+※ 다른 coin API는 회원가입, API Key 발급받아서 사용 하거나,
+    https://jsonplaceholder.typicode.com/  [fakeJSON] 을 활용한 UI 렌더링
+
+
+III. 영화정보 API를 활용한 UI 렌더링 [서버 응답 데이터]
+
+
+IV. 공공 API를 활용한 (지역 내) 약국 정보 [서버 응답 데이터]
+※ 공공API 활용
+
+
+
+
+
+
+
+
+
+
+
+

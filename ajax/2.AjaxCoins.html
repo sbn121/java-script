@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비트코인 파프리카</title>
+    <style>
+        table, th, td {
+            border: 1px solid #333;
+            border-collapse: collapse;
+        }
+        tbody {
+            width: 100%;
+        }
+        th {
+            width: 20%;
+            padding: 1rem 0
+        }
+        td {
+            padding: .725rem 0;
+            text-align: center;
+        }
+        #json_table {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>오늘의 비트코인 시세</h1>
+    <button id="load_tikers">코인정보 불러오기</button>
+    <table id="coins">
+        <thead>
+            <th>순위</th>
+            <th>코인명</th>
+            <th>총 코인수</th>
+            <th>업데이트 일자</th>
+            <th>가격(USD / won)</th>
+        </thead>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // coin paprika API (Free, 25000/Month);
+        var coinURL = "https://api.coinpaprika.com/v1/tickers";
+    $(function(){
+        $("#load_tikers").on("click", function(){
+            $.ajax({
+                type: "GET",
+                url: coinURL,
+                success: function(data){
+                    // 서버에 데이터 코인정보 요청 --> 응답 성공되면 할일을 정의
+                    console.log(data);  //어떤 데이터가 왔을까?
+
+                    // // 1. 일반 for문 : 변수 선언, length 까지, 증감
+                    // // for(var i=0; i<coins.length; i++) {
+                    // //        ...반복 처리 로직...
+                    // // }
+                    // // 2. 배열을 위한 for문 : for ~ of는 (↑ 불필요);
+
+                    // for(d of data) {
+                    //     console.log(d);
+                    // }
+                }
+            });
+        })
+    });
+    </script>
+</body>
+</html>
