@@ -48,7 +48,6 @@
     </form>
     <a href="/join.jsp">회원가입</a><!-- 기본 요청은 GET -->
     <h3>jQuery AJAX 요청 실습</h3>
-    <button id="textBtn">text 불러오기</button>
     <table id="json_table">
         <thead>
             <tr>
@@ -63,6 +62,7 @@
             <!-- 여기에 AJAX로 요청한 데이터 + UI 요소를 출력할 예정 -->
         </tbody>
     </table>
+    <button id="textBtn">text 불러오기</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         
@@ -89,10 +89,11 @@
                     row += "<td>"+email+"</td>";
                     row += "</tr>";
                     // console.log(row);
-                    // 가공(표를 만들거나, 데이터를 그 표에 꾸겨 넣거나?)
-                    // 그리고 마지막에 DOM에 추가(렌더링)
                     table.append(row);
                 }
+                // 가공(표를 만들거나, 데이터를 그 표에 꾸겨 넣거나?)
+                // 그리고 마지막에 DOM에 추가(렌더링)
+                
             });
         })
     });

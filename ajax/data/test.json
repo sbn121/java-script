@@ -1,19 +1,19 @@
 {
     "todo":[
         {
-            "id": 1,
-            "text": "jQuery AJAX 통신",
-            "isDone": true
+            "id":1,
+            "text":"jQuery AJAX 통신",
+            "isDone":true
         },
         {
-            "id": 2,
-            "text": "jQuery AJAX 통신",
-            "isDone": false
+            "id":2,
+            "text":"jQuery AJAX 통신",
+            "isDone":false
         },
         {
-            "id": 3,
-            "text": "jQuery AJAX 통신",
-            "isDone": false
+            "id":2,
+            "text":"jQuery AJAX 통신",
+            "isDone":false
         }
         
     ]

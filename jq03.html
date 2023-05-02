@@ -7,9 +7,9 @@
     <title>jQuery 실습</title>
 </head>
 <body>
-    <h1>HTML 엘리먼트 내용에 접근하기(p.476)</h1>
+    <h1>HTML 엘리먼트 내용에 접근하기(P.476)</h1>
     <h2>관련 메소드</h2>
-    <p>get 메소드 : 메소드 호출시 인수로 아무런 파라미터가 전달되지 않는 것</p>
+    <p>get 메소드 : 메소드 호출 시 인수로 아무런 파라미터가 전달되지 않는 것</p>
     <p>set 메소드 : 파라미터로 데이터를 전달(대게는 string)</p>
     <ul>
         <li>.html()</li>
@@ -17,7 +17,7 @@
         <li>.val()</li>
         <li>.props()</li>
     </ul>
-    <!-- p.478 코드 참조-->
+    <!-- p.478 코드 참조 -->
     <div id="result">
         <p>이미지 표시</p>
         <button id="b1">버튼 레이블 변경</button>
@@ -38,23 +38,23 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-    $(function(){
-        $("#b1").on("click", handleB1); 
+        $(function(){
+            $("#b1").on("click", handleB1);
 
-        $("#b2").on("dblclick", handleB2);
+            $("#b2").on("dblclick", handleB2);
 
-        $("form").on("submit", function(e){
-            e.preventDefault(); // 새로 고침(=form의 기본 이벤트 동작) 금지!
-            console.log($("[type=search]").val()); // get method!
-        })
-    });
-    function handleB1(){
-        $("#b2").text($("#result > p").text()); // 먼저 p의 내용을 get 한 뒤, 버튼 라벨을 set
-    }
-    function handleB2(){
-        //$("#result > p").html("<img src=\"https://picsum.photos/id/1/300\" alt=\"picsum photos\">");
-        $("#result > p").text("<img src=\"https://picsum.photos/id/1/300\" alt=\"picsum photos\">");
-    }
+            $("form").on("submit", function(e){
+                e.preventDefault(); // 새로고침(form의 기본 이벤트 동작) 금지!
+                console.log($("[type=search]").val());  // get method
+            })
+        });
+        function handleB1(){
+            $("#b2").text($("#result > p").text()); // 먼저 p의 내용을 get한 뒤, 버튼 라벨을 set
+        }
+        function handleB2(){
+            $("#result > p").html("<img src=\"https://picsum.photos/id/1/300\" alt=\"picsum photos\">");
+            // $("#result > p").text("<img src=\"https://picsum.photos/id/1/300\" alt=\"picsum photos\">");
+        }
     </script>
 </body>
 </html>
